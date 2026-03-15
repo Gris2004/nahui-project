@@ -15,6 +15,11 @@
     "eslint": "^10.0.3",
     "express": "^5.2.1",
     "nodemon": "^3.1.14",
-    "sqlite3": "^6.0.1"
+    "path": "^0.12.7",
+    "sqlite3": "^6.0.1",
+    "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "dotenv": "^17.3.1"
   }
 }
