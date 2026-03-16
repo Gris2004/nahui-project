@@ -1,11 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv'
+import router from './routes/routes.mjs'
 
 const app = express();
 dotenv.config();
 
 app.use(express.json());
-//app.use('/api', router)
+app.use('/api', router)
 app.set('json spaces', 2);
 
 const port = process.env.API_PORT || 8080;

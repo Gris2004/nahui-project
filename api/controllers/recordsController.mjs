@@ -13,6 +13,24 @@ export default class RecordsController{
     builder(db){
         this.db = db;
     }
+    
+    /**
+     * fetchData
+     * @params (String) tableName
+     * @returns [Promise(resolve || reject)] if resolve: [string] rows*/
+
+    fetchData (tableName) {
+        //query for execute the consult
+        const query = `SELECT * FROM ${tableName}`; 
+        
+        //promise that returns rows from the 
+        return new Promise((resolve, reject) => {
+            this.db.all(query, (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows);
+            });
+        });
+    }
 
     /**
      * describes the table from the tableName param
