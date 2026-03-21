@@ -16,4 +16,4 @@ export const dbPath = path.resolve(__dirname, "./archivo.db");
 export const db = new sqlite3.Database(dbPath)
 
 //test
-//console.log(dbPath);
+console.log(dbPath);
