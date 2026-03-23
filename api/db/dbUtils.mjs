@@ -12,7 +12,7 @@ dotenv.config({path: envPath});
  * testConnection: makes a consult for sqlite3 for return a promise
  * @param [sqlite3.Database] db - db for make consults to database
  * @return [Promise] - all tables or an error connection*/
-export function testConnection(db){
+const testConnection = (db) => {
     const query = "SELECT name FROM sqlite_master WHERE type='table';";
     return new Promise((resolve, reject) => {
         db.all(query, [], (err, rows) => {
@@ -22,21 +22,14 @@ export function testConnection(db){
             }
         });
     });
-}
+};
 
 /**
  *dbPath takes the value from the .env and create an absolute path for open the db
  *@return [path.resolve] dbRoute - the variable for open the database from any directory
 */
-export const dbPath = path.resolve(__dirname, "./archivo.db");
-export const db = new sqlite3.Database(dbPath)
+const dbPath = path.resolve(__dirname, "./archivo.db");
+const db = new sqlite3.Database(dbPath)
 
 //test
-console.log(dbPath);
-
-testConnection(db).then(result => {
-    console.log('conexión exitosa');
-    console.log(result);
-}).catch(err => {
-    console.log("error message: ", err);
-});
+export { db, dbPath, testConnection };
