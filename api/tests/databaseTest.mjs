@@ -17,7 +17,7 @@ testConnection(db).then(result => {
 const recordsTest = new RecordsController(db);
 
 //fetchData
-recordsTest.fetchData('test').then(result => {
+await recordsTest.fetchData('test').then(result => {
     console.log('Data Collection Succesful');
     console.log(result);
 }).catch(err => {
@@ -25,9 +25,17 @@ recordsTest.fetchData('test').then(result => {
 });
 
 //describeTable
-recordsTest.describeTable('test').then(result => {
+await recordsTest.describeTable('test').then(result => {
     console.log('Description Succesful');
     console.log(result);
 }).catch(err => {
     console.log('Error Message: ', err);
+});
+
+//insertRecord
+await recordsTest.insertRecord('test', ["test from node js"]).then(result => {
+    console.log('Insertion Succeful');
+    console.log(result);
+}).catch(err => {
+    console.log("Error Message: ", err);
 });
