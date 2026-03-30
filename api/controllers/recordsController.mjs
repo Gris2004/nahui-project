@@ -15,6 +15,17 @@ export default class RecordsController{
             });
         });
     }
+
+    describeTable(tableName){
+        const query = `PRAGMA table_info(${tableName})`;
+
+        return new Promise((resolve, reject) => {
+            db.all(query, [], (err, rows) => {
+                if(err) reject(err);
+                else resolve(rows);
+            });
+        });
+    }
 }
 
 
