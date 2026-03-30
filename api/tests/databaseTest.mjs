@@ -39,3 +39,17 @@ await recordsTest.insertRecord('test', ["test from node js"]).then(result => {
 }).catch(err => {
     console.log("Error Message: ", err);
 });
+
+await recordsTest.deleteRecord('test', 'id_test', 3).then(result => {
+    console.log("Delete Succesful");
+    console.log(result);
+}).catch(err => {
+    console.log("Error Message: ", err);
+});
+
+await recordsTest.updateRecord('test', ["name_test"], ["updated test from node js"], "id_test", 4).then(result => {
+    console.log("Update Succesful");
+    console.log(result);
+}).catch(err => {
+    console.log("Error Message: ", err);
+});
