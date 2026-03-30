@@ -16,8 +16,16 @@ testConnection(db).then(result => {
 //RecordsController
 const recordsTest = new RecordsController(db);
 
-//DescribeTable
+//fetchData
 recordsTest.fetchData('test').then(result => {
+    console.log('Data Collection Succesful');
+    console.log(result);
+}).catch(err => {
+    console.log('Error Message: ', err);
+});
+
+//describeTable
+recordsTest.describeTable('test').then(result => {
     console.log('Description Succesful');
     console.log(result);
 }).catch(err => {
